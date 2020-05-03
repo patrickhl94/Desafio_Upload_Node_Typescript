@@ -30,7 +30,7 @@ class CreateTransactionService {
     const transactions = await transactionRepository.find();
 
     const { total } = await transactionRepositories.getBalance(transactions);
-    console.log(total);
+
     if (type === 'outcome' && value > total) {
       throw new AppError('The value is less than the total available');
     }
